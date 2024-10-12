@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mensaje Bonito</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00ff00;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.5em;
+      padding: 20px;
+    }
+    .console {
+      width: 80%;
+      margin: 50px auto;
+      padding: 10px;
+      border: 2px solid #00ff00;
+      background-color: black;
+    }
+    .console h1 {
+      text-align: center;
+      color: #00ff00;
+      animation: blink 1s steps(2, start) infinite;
+    }
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="console">
+    <h1>Access Granted...</h1>
+    <p>Loading message...<span id="dots"></span></p>
+    <p id="message" style="display:none;">Te amo mucho y siempre te desearé lo mejor en la vida. Eres una excelente mujer con un corazón increíble. 💚</p>
+  </div>
+
+  <script>
+    // Simulación de carga tipo "hacker"
+    let dots = document.getElementById('dots');
+    let message = document.getElementById('message');
+    let interval = setInterval(() => {
+      dots.textContent += '.';
+      if (dots.textContent.length > 3) {
+        dots.textContent = '';
+      }
+    }, 500);
+
+    // Mostrar el mensaje después de un tiempo
+    setTimeout(() => {
+      clearInterval(interval);
+      dots.style.display = 'none';
+      message.style.display = 'block';
+    }, 3000);
+  </script>
+</body>
+</html>
